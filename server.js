@@ -1,11 +1,18 @@
 const express = require('express'); //load express module
 const app = express(); //start an express app
+const path = require('path');
 
+
+app.use(express.static('public'));
 // create landing page
 app.get('/',(req,res)=>{
     //send response
-    res.json('hey, you are in the home page!!');
+    
+    //res.sendFile(path.join(__dirname,"/index.html"))
+    res.sendFile("/index.html")
 });
+
+
 
 // /profile
 app.get('/profile',(req,res)=>{
